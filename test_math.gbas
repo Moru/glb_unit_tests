@@ -1,0 +1,121 @@
+// --------------------------------- //
+// Project: Unit_testing
+// Start: Monday, November 10, 2014
+// IDE Version: 12.312
+
+
+FUNCTION test_math:
+	save_result_row("--- Starting math tests from the test_math.gbas file ---", TRUE)
+	math_abs()
+	math_acos()
+	math_asin()
+	math_asl_asr()
+	math_atan()
+	math_sin()
+	math_cos()
+ENDFUNCTION
+
+
+FUNCTION math_abs:
+	save_result_row(test_val_eq$("math_abs", ABS(-1), 1))
+	save_result_row(test_val_eq$("math_abs", ABS(-5), 5))
+	save_result_row(test_val_eq$("math_abs", ABS(5), 5))
+	save_result_row(test_val_eq$("math_abs", ABS(2147483647), 2147483647))
+	save_result_row(test_val_eq$("math_abs", ABS(-2147483647), 2147483647))
+ENDFUNCTION
+
+FUNCTION math_acos:
+	save_result_row(test_val_eq$("math_acos", ACOS(0), 90, 8))
+	
+	save_result_row(test_val_eq$("math_acos", ACOS(0.25), 75.52248781, 8))
+	save_result_row(test_val_eq$("math_acos", ACOS(0.5), 60, 8))
+	save_result_row(test_val_eq$("math_acos", ACOS(0.75), 41.40962211, 8))
+	save_result_row(test_val_eq$("math_acos", ACOS(1), 0, 8))
+
+	save_result_row(test_val_eq$("math_acos", ACOS(-0.25), 104.4775122, 7))
+	save_result_row(test_val_eq$("math_acos", ACOS(-0.5), 120, 8))
+	save_result_row(test_val_eq$("math_acos", ACOS(-0.75), 138.5903779, 7))
+	save_result_row(test_val_eq$("math_acos", ACOS(-1), 180, 8))
+
+	save_result_row(test_val_eq$("math_acos", ACOS(42), 0, 8))
+	save_result_row(test_val_eq$("math_acos", ACOS(-42), 180, 8))
+ENDFUNCTION
+
+FUNCTION math_asin:
+	save_result_row(test_val_eq$("math_asin", ASIN(0), 0, 8))
+	
+	save_result_row(test_val_eq$("math_asin", ASIN(0.25), 14.47751219, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(0.5), 30, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(0.75), 48.59037789, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(1), 90, 8))
+
+	save_result_row(test_val_eq$("math_asin", ASIN(-0.25), -14.47751219, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(-0.5), -30, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(-0.75), -48.59037789, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(-1), -90, 8))
+
+	save_result_row(test_val_eq$("math_asin", ASIN(42), 90, 8))
+	save_result_row(test_val_eq$("math_asin", ASIN(-42), -90, 8))
+ENDFUNCTION
+
+FUNCTION math_asl_asr:
+	save_result_row(test_val_eq$("math_asl_asr", ASL(0xf0, 4), 0xf00))
+	save_result_row(test_val_eq$("math_asl_asr", ASL(0xffffffff, 1), -2))
+	save_result_row(test_val_eq$("math_asl_asr", ASR(0xf0, 4), 0xf))
+	save_result_row(test_val_eq$("math_asl_asr", ASR(0xff, 4), 0xf))
+ENDFUNCTION
+
+FUNCTION math_atan:
+	save_result_row(test_val_eq$("math_atan", ATAN(1, -1), 135, 8))
+	
+	save_result_row(test_val_eq$("math_atan", ATAN(0.25, 0.5), 26.56505118, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(0.5, 0.5), 45, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(0.75, 0.5), 56.30993247, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(1, 0.5), 63.43494882, 8))
+
+	save_result_row(test_val_eq$("math_atan", ATAN(-0.25, 0.5), -26.56505118, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(-0.5, 0.5), -45, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(-0.75, 0.5), -56.30993247, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(-1, 0.5), -63.43494882, 8))
+
+	save_result_row(test_val_eq$("math_atan", ATAN(42, 0.5), 89.31793961, 8))
+	save_result_row(test_val_eq$("math_atan", ATAN(-42, 0.5), -89.31793961, 8))
+ENDFUNCTION
+
+// bAND, bNOT, bOR, bXOR
+FUNCTION math_binary:
+	save_result_row(test_val_eq$("math_binary_bAND", bAND(0xffffffff, 0xf0f0f0f0), 0xf0f0f0f0))
+	save_result_row(test_val_eq$("math_binary_bNOT", bNOT(0xf0f0f0f0), 0x0f0f0f0f))
+	save_result_row(test_val_eq$("math_binary_bOR", bOR(0xf0f0f0f0, 0x0f0f0f0f), 0xffffffff))
+	save_result_row(test_val_eq$("math_binary_bXOR", bXOR(0xf0f0f0f0, 0xffffffff), 0x0f0f0f0f))
+ENDFUNCTION
+
+FUNCTION math_sin:
+	save_result_row(test_val_eq$("math_sin", SIN(0), 0, 8))
+	
+	save_result_row(test_val_eq$("math_sin", SIN(15), 0.2588190451, 10))
+	save_result_row(test_val_eq$("math_sin", SIN(30), 0.5, 8))
+	save_result_row(test_val_eq$("math_sin", SIN(45), 0.7071067812, 10))
+	save_result_row(test_val_eq$("math_sin", SIN(90), 1, 8))
+	save_result_row(test_val_eq$("math_sin", SIN(125), 0.8191520443, 10))
+	save_result_row(test_val_eq$("math_sin", SIN(180), 1.224606354e-016, 25))	// Might have to lower the tollerance here for other platforms
+	save_result_row(test_val_eq$("math_sin", SIN(225), -0.7071067812, 10))
+	save_result_row(test_val_eq$("math_sin", SIN(360), -2.449212708e-016, 25))	// And here
+
+	save_result_row(test_val_eq$("math_sin", SIN(-42), -0.6691306064, 8))
+ENDFUNCTION
+
+FUNCTION math_cos:
+	save_result_row(test_val_eq$("math_cos", COS(0), 1, 8))
+	
+	save_result_row(test_val_eq$("math_cos", COS(15), 0.9659258263, 10))
+	save_result_row(test_val_eq$("math_cos", COS(30), 0.8660254038, 8))
+	save_result_row(test_val_eq$("math_cos", COS(45), 0.7071067812, 10))
+	save_result_row(test_val_eq$("math_cos", COS(90), 6.123031769e-017, 8))
+	save_result_row(test_val_eq$("math_cos", COS(125), -0.5735764364, 10))
+	save_result_row(test_val_eq$("math_cos", COS(180), -1, 25))	// Might have to lower the tollerance here for other platforms
+	save_result_row(test_val_eq$("math_cos", COS(225), -0.7071067812, 10))
+	save_result_row(test_val_eq$("math_cos", COS(360), 1, 25))	// And here
+
+	save_result_row(test_val_eq$("math_cos", COS(-42), 0.7431448255, 8))
+ENDFUNCTION

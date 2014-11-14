@@ -1,0 +1,61 @@
+// --------------------------------- //
+// Project: Unit_testing
+// Start: Sunday, November 09, 2014
+// IDE Version: 12.312
+
+
+FUNCTION test_basics:
+	save_result_row(" ", TRUE)
+	save_result_row("--- Starting basics tests from the basics.gbas file ---", TRUE)
+	save_result_row(test_val_eq$("equal", 1, 1))
+	basics_type_conversion_str_float_str()
+	basics_type_conversion_str_int_str()
+	basics_asc_chr()
+ENDFUNCTION
+
+
+FUNCTION basics_type_conversion_str_float_str:
+	LOCAL a$, b#
+
+	a$="123.4"
+	b# = a$
+	a$ = b#
+
+	save_result_row(test_str_eq$("basics_type_conversion_str_float_str", a$, "123.4"))
+ENDFUNCTION
+
+FUNCTION basics_type_conversion_str_int_str:
+	LOCAL a$, b%
+
+	a$="123.4"
+	b% = a$
+	a$ = b%
+
+	save_result_row(test_str_eq$("basics_type_conversion_str_float_str", a$, "123"))
+ENDFUNCTION
+
+// Test converting between characters and ascii code.
+FUNCTION basics_asc_chr:
+	LOCAL a$, b%
+
+	FOR n% = 1 TO 255
+		a$ = CHR$(n)
+		b% = ASC(a$)
+		save_result_row(test_val_eq$("basics_asc_chr", n%, b%))
+	NEXT
+	// Under and overflow
+	a$ = CHR$(-1)
+	b% = ASC(a$)
+	save_result_row(test_val_eq$("basics_asc_chr", 255, b%))
+	a$ = CHR$(256)
+	b% = ASC(a$)
+	save_result_row(test_val_eq$("basics_asc_chr", 0, b%))
+ENDFUNCTION
+
+FUNCTION basics_constant:
+	LOCAL a$, b%
+	CONSTANT wont_change% = 5
+	CONSTANT wont_change% = 2
+
+	save_result_row(test_val_eq$("basics_constant", wont_change, 5))
+ENDFUNCTION

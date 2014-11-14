@@ -1,0 +1,138 @@
+// --------------------------------- //
+// Project: Unit_testing
+// Start: Sunday, November 09, 2014
+// IDE Version: 12.312
+
+
+
+
+
+SETCURRENTDIR("Media") // go to media files
+
+GLOBAL results$ = ""
+GLOBAL start_time% = 0
+GLOBAL total_errors = 0
+
+start_time = GETTIMERALL()
+
+save_result_row("--- Starting unit test ---\n", TRUE)
+
+// --------------------------
+// Some machine specific data for the log:
+// --------------------------
+platform_info()
+
+// --------------------------
+// Run the tests:
+// --------------------------
+test_basics() 
+test_math()
+
+IF (total_errors > 0)
+	save_result_row("\n\n--- Total number of errors: " + total_errors, TRUE)
+ELSE
+	save_result_row("\n\n--- No errors found ---", TRUE)
+
+ENDIF
+
+// --------------------------
+// Save the result with a timestamp (1/1000 sec. from program start)
+// --------------------------
+// @param str text_row$ - The message to save to logfile
+// @param bool info_row% - If true, don't record this message as an error
+FUNCTION save_result_row: text_row$, info_row% = FALSE
+	IF (LEN(text_row$) > 0)
+		LOCAL timestamp$ 
+		
+		// Count errors if this was not an info row
+		IF (info_row% = FALSE)
+			INC total_errors, 1
+		ENDIF
+		
+		timestamp$ = FORMAT$(1,2,GETTIMERALL() - start_time%)
+		text_row$ = "\n[" + (timestamp$) + "] " + text_row$
+		
+		DEBUG text_row$
+	ENDIF
+ENDFUNCTION
+
+
+// --------------------------
+// Test an int if it is equal to the expected result
+// --------------------------
+FUNCTION test_val_eq$: test$, result, expected, precision = 8
+	IF (ABS(expected - result) < POW(0.1, precision))
+		RETURN ""
+	ELSE
+		RETURN result_val$(test$, result, expected)
+	ENDIF
+ENDFUNCTION
+
+
+// --------------------------
+// Format the result info for a failed test of integers
+// --------------------------
+FUNCTION result_val$: test$, result, expected
+	RETURN "Failed val: " + test$ + " (expected:[" + expected + "] got:[" + result + "])"
+ENDFUNCTION
+
+
+// --------------------------
+// Test a string if it is equal to the expected result
+// --------------------------
+FUNCTION test_str_eq$: test$, result$, expected$
+	IF (expected$ = result$)
+		RETURN ""
+	ELSE
+		RETURN result_str$(test$, result$, expected$)
+	ENDIF
+ENDFUNCTION
+
+// --------------------------
+// Format the result info for a failed test of strings
+// --------------------------
+FUNCTION result_str$: test$, result$, expected$
+	RETURN "Failed str: " + test$ + " (expected:[" + expected$ + "] got:[" + result$ + "])"
+ENDFUNCTION
+
+
+// --------------------------
+// Get all the platforminfo$() results to display in the start of the logfile:
+// --------------------------
+FUNCTION platform_info:
+	LOCAL a$, title$
+	
+	RESTORE platform_info_strings
+	REPEAT
+		READ a$
+		IF (a$ = "")
+			title$ = "PLATFORM"
+		ELSEIF (a$ = "---eof---")
+			title$ = "Should be [NO_DATA]:"
+		ELSE
+			title$ = a$
+		ENDIF
+		save_result_row(title$ + " -> [" + PLATFORMINFO$(a$) + "]", TRUE)
+	UNTIL a$ = "---eof---"
+ENDFUNCTION
+
+// --------------------------
+// The what$ strings for plantforminfo$()
+// --------------------------
+STARTDATA platform_info_strings:
+    DATA ""
+    DATA "DOCUMENTS"
+    DATA "APPDATA"
+    DATA "ID"
+    DATA "DEVICE"
+    DATA "BATTERY"
+    DATA "TIME"
+    DATA "UTCTIME"
+    DATA "COMPILED"
+    DATA "VERSION"
+    DATA "HOSTID"
+    DATA "LOCALE"
+    DATA "TEMP"
+    DATA "DPI"
+    DATA "---eof---"
+ENDDATA
