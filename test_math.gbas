@@ -26,7 +26,7 @@ ENDFUNCTION
 
 FUNCTION math_acos:
 	save_result_row(test_val_eq$("math_acos", ACOS(0), 90, 8))
-	
+
 	save_result_row(test_val_eq$("math_acos", ACOS(0.25), 75.52248781, 8))
 	save_result_row(test_val_eq$("math_acos", ACOS(0.5), 60, 8))
 	save_result_row(test_val_eq$("math_acos", ACOS(0.75), 41.40962211, 8))
@@ -43,7 +43,7 @@ ENDFUNCTION
 
 FUNCTION math_asin:
 	save_result_row(test_val_eq$("math_asin", ASIN(0), 0, 8))
-	
+
 	save_result_row(test_val_eq$("math_asin", ASIN(0.25), 14.47751219, 8))
 	save_result_row(test_val_eq$("math_asin", ASIN(0.5), 30, 8))
 	save_result_row(test_val_eq$("math_asin", ASIN(0.75), 48.59037789, 8))
@@ -67,7 +67,7 @@ ENDFUNCTION
 
 FUNCTION math_atan:
 	save_result_row(test_val_eq$("math_atan", ATAN(1, -1), 135, 8))
-	
+
 	save_result_row(test_val_eq$("math_atan", ATAN(0.25, 0.5), 26.56505118, 8))
 	save_result_row(test_val_eq$("math_atan", ATAN(0.5, 0.5), 45, 8))
 	save_result_row(test_val_eq$("math_atan", ATAN(0.75, 0.5), 56.30993247, 8))
@@ -92,7 +92,7 @@ ENDFUNCTION
 
 FUNCTION math_sin:
 	save_result_row(test_val_eq$("math_sin", SIN(0), 0, 8))
-	
+
 	save_result_row(test_val_eq$("math_sin", SIN(15), 0.2588190451, 10))
 	save_result_row(test_val_eq$("math_sin", SIN(30), 0.5, 8))
 	save_result_row(test_val_eq$("math_sin", SIN(45), 0.7071067812, 10))
@@ -107,7 +107,7 @@ ENDFUNCTION
 
 FUNCTION math_cos:
 	save_result_row(test_val_eq$("math_cos", COS(0), 1, 8))
-	
+
 	save_result_row(test_val_eq$("math_cos", COS(15), 0.9659258263, 10))
 	save_result_row(test_val_eq$("math_cos", COS(30), 0.8660254038, 8))
 	save_result_row(test_val_eq$("math_cos", COS(45), 0.7071067812, 10))

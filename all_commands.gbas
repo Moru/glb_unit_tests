@@ -1,4 +1,4 @@
-//  --------------------------------- // 
+//  --------------------------------- //
 //  Project: Unit_testing
 //  Start: Sunday, November 09, 2014
 //  IDE Version: 12.312
@@ -20,7 +20,7 @@
 // ASSERT()
 // -ATAN()
 // AUTOPAUSE
-// 
+//
 // -bAND()
 // BLACKSCREEN
 // BLENDSCREEN
@@ -31,7 +31,7 @@
 // BREAK
 // -bXOR()
 // BYREF
-// 
+//
 // CALLBACK
 // CALLBYNAME()
 // CASE
@@ -47,7 +47,7 @@
 // -COS()
 // CREATEDIR()
 // CREATESCREEN
-// 
+//
 // DATA
 // DEBUG
 // DEC
@@ -64,7 +64,7 @@
 // DRAWLINE
 // DRAWRECT
 // DRAWSPRITE
-// 
+//
 // ELSE
 // ELSEIF
 // ENCRYPT$()
@@ -78,7 +78,7 @@
 // ENDSELECT
 // ENDSUB
 // EXPORT
-// 
+//
 // FILEPOSITION
 // FILEREQUEST$()
 // FILESEEK
@@ -90,7 +90,7 @@
 // FOREACH
 // FORMAT$()
 // FUNCTION
-// 
+//
 // GENFILE()
 // GENFONT()
 // GENSCREEN()
@@ -132,11 +132,11 @@
 // GOSUB
 // GOTO
 // GRABSPRITE
-// 
+//
 // HEX$()
 // HIBERNATE
 // HUSH
-// 
+//
 // IF
 // IIF()
 // IMPORT
@@ -151,13 +151,13 @@
 // INTEGER()
 // ISFULLSCREEN()
 // ISMUSICPLAYING()
-// 
+//
 // JOYSTATE
-// 
+//
 // KEY()
 // KEYWAIT
 // KILLFILE
-// 
+//
 // LCASE$()
 // LEFT$()
 // LEN()
@@ -174,7 +174,7 @@
 // LOGN()
 // LOOPMOVIE
 // LTRIM$()
-// 
+//
 // MAX()
 // MEM2SPRITE()
 // MID$()
@@ -184,7 +184,7 @@
 // MOUSESTATE
 // MOUSEWAIT
 // MUSICVOLUME
-// 
+//
 // NET...
 // NETALLOWJOINING
 // NETCREATEPLAYER
@@ -206,10 +206,10 @@
 // NETWEBGET
 // NEXT
 // NOT
-// 
+//
 // OPENFILE()
 // OR
-// 
+//
 // PAUSEMUSIC
 // PLATFORMINFO$()
 // PLAYMOVIE
@@ -222,7 +222,7 @@
 // PROTOTYPE
 // PUTENV
 // PUTFILE
-// 
+//
 // READ
 // READBYTE
 // READIEEE
@@ -248,7 +248,7 @@
 // ROTOZOOMANIM
 // ROTOZOOMSPRITE
 // RTRIM$()
-// 
+//
 // SAVEBMP
 // SAVESPRITE
 // SEEDRND
@@ -308,7 +308,7 @@
 // SUB
 // SWAP
 // SYSTEMPOINTER
-// 
+//
 // TAN()
 // THEN
 // THROW
@@ -316,16 +316,16 @@
 // TRIM$()
 // TRY
 // TYPE
-// 
+//
 // UCASE$
 // UNTIL
 // URLDECODE$()
 // URLENCODE$()
 // USEASBMP
 // USESCREEN
-// 
+//
 // VIEWPORT
-// 
+//
 // WEND
 // WHILE
 // WRITEBYTE
@@ -338,7 +338,7 @@
 // WRITEULONG
 // WRITEUWORD
 // WRITEWORD
-// 
+//
 // X_AMBIENT_LT
 // X_AUTONORMALS
 // X_CAMERA
@@ -391,5 +391,5 @@
 // X_SPOT_LT
 // X_SPRITE
 // X_WORLD2SCREEN
-// 
+//
 // ZOOMSPRITE

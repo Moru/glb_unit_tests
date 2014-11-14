@@ -25,7 +25,7 @@ platform_info()
 // --------------------------
 // Run the tests:
 // --------------------------
-test_basics() 
+test_basics()
 test_math()
 
 IF (total_errors > 0)
@@ -42,16 +42,16 @@ ENDIF
 // @param bool info_row% - If true, don't record this message as an error
 FUNCTION save_result_row: text_row$, info_row% = FALSE
 	IF (LEN(text_row$) > 0)
-		LOCAL timestamp$ 
-		
+		LOCAL timestamp$
+
 		// Count errors if this was not an info row
 		IF (info_row% = FALSE)
 			INC total_errors, 1
 		ENDIF
-		
+
 		timestamp$ = FORMAT$(1,2,GETTIMERALL() - start_time%)
 		text_row$ = "\n[" + (timestamp$) + "] " + text_row$
-		
+
 		DEBUG text_row$
 	ENDIF
 ENDFUNCTION
@@ -101,7 +101,7 @@ ENDFUNCTION
 // --------------------------
 FUNCTION platform_info:
 	LOCAL a$, title$
-	
+
 	RESTORE platform_info_strings
 	REPEAT
 		READ a$
